@@ -21,7 +21,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
     func homeTimeline(handler: (([Tweet]!, NSError!) -> Void)!) {
         GET("1.1/statuses/home_timeline.json", parameters: nil,
             success: { (operation, data) in
-                var tweets = data as [NSDictionary]
+                var tweets = data as! [NSDictionary]
                 var parsedTweets = tweets.map({ Tweet(values: $0) })
                 handler(parsedTweets, nil)
             },
@@ -33,7 +33,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
     func homeTimelineAfterTweetWithId(id: Int, handler: (([Tweet]!, NSError!) -> Void)!) {
         GET("1.1/statuses/home_timeline.json", parameters: ["since_id": id],
             success: { (operation, data) in
-                var tweets = data as [NSDictionary]
+                var tweets = data as! [NSDictionary]
                 var parsedTweets = tweets.map({ Tweet(values: $0) })
                 handler(parsedTweets, nil)
             },
@@ -45,7 +45,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
     func userTimeline(screenName: String, handler: (([Tweet]!, NSError!) -> Void)!) {
         GET("1.1/statuses/user_timeline.json", parameters: ["screen_name": screenName],
             success: { (operation, data) in
-                var tweets = data as [NSDictionary]
+                var tweets = data as! [NSDictionary]
                 var parsedTweets = tweets.map({ Tweet(values: $0) })
                 handler(parsedTweets, nil)
             },
@@ -57,7 +57,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
     func verifyAccountCredentials(handler: ((User!, NSError!) -> Void)!) {
         GET("1.1/account/verify_credentials.json", parameters: nil,
             success: { (operation, data) in
-                var user = User(values: data as NSDictionary)
+                var user = User(values: data as! NSDictionary)
                 handler(user, nil)
             },
             failure: { (operation, error) in
@@ -74,7 +74,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         
         POST("1.1/statuses/update.json", parameters: params,
             success: { (operation, data) in
-                var tweet = Tweet(values: data as NSDictionary)
+                var tweet = Tweet(values: data as! NSDictionary)
                 handler(tweet, nil)
             },
             failure: { (operation, error) in
@@ -85,7 +85,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
     func favoriteTweetWithId(id: Int, handler: ((Tweet!, NSError!) -> Void)!) {
         POST("1.1/favorites/create.json", parameters: ["id": id],
             success: { (operation, data) in
-                var tweet = Tweet(values: data as NSDictionary)
+                var tweet = Tweet(values: data as! NSDictionary)
                 handler(tweet, nil)
             },
             failure: { (operation, error) in
@@ -96,7 +96,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
     func unfavoriteTweetWithId(id: Int, handler: ((Tweet!, NSError!) -> Void)!) {
         POST("1.1/favorites/destroy.json", parameters: ["id": id],
             success: { (operation, data) in
-                var tweet = Tweet(values: data as NSDictionary)
+                var tweet = Tweet(values: data as! NSDictionary)
                 handler(tweet, nil)
             },
             failure: { (operation, error) in
@@ -107,7 +107,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
     func retweetTweetWithId(id: Int, handler: ((Tweet!, NSError!) -> Void)!) {
         POST("1.1/statuses/retweet/\(id).json", parameters: nil,
             success: { (operation, data) in
-                var tweet = Tweet(values: data as NSDictionary)
+                var tweet = Tweet(values: data as! NSDictionary)
                 handler(tweet, nil)
             },
             failure: { (operation, error) in

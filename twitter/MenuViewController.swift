@@ -35,13 +35,13 @@ class MenuViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.row == 0) {
-            var cell = tableView.dequeueReusableCellWithIdentifier("ProfileViewCell") as MenuProfileTableViewCell
+            var cell = tableView.dequeueReusableCellWithIdentifier("ProfileViewCell") as! MenuProfileTableViewCell
             cell.fullNameLabel.text = user.name
             cell.screenNameLabel.text = "@\(user.screenName)"
             cell.profileImage.setImageWithURL(user.profileImageUrl)
             return cell
         } else {
-            var cell = tableView.dequeueReusableCellWithIdentifier("MenuItemCell") as MenuItemTableViewCell
+            var cell = tableView.dequeueReusableCellWithIdentifier("MenuItemCell") as! MenuItemTableViewCell
             cell.titleLabel.text = menuOptions[indexPath.row]["title"]
             return cell
         }

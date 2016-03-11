@@ -24,13 +24,13 @@ class User: NSObject {
     var timeline: [Tweet]
     
     init(values: NSDictionary) {
-        name = values["name"] as String
-        screenName = values["screen_name"] as String
-        profileImageUrl = NSURL(string: values["profile_image_url"] as String)
+        name = values["name"] as! String
+        screenName = values["screen_name"] as! String
+        profileImageUrl = NSURL(string: values["profile_image_url"] as! String)!
         tagline = values["tagline"] as? String
-        followersCount = values["followers_count"] as Int
-        friendsCount = values["friends_count"] as Int
-        statusesCount = values["statuses_count"] as Int
+        followersCount = values["followers_count"] as! Int
+        friendsCount = values["friends_count"] as! Int
+        statusesCount = values["statuses_count"] as! Int
         
         if let suppliedProfileBannerUrl = values["profile_banner_url"] as? String {
             profileBannerUrl = NSURL(string: suppliedProfileBannerUrl)

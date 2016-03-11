@@ -41,11 +41,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String, annotation: AnyObject?) -> Bool {
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         
         // Finish the auth process and close the auth view.
-        var navigationController = self.window?.rootViewController as UINavigationController
-        var splashViewController = navigationController.viewControllers[0] as SplashViewController
+        var navigationController = self.window?.rootViewController as! UINavigationController
+        var splashViewController = navigationController.viewControllers[0] as! SplashViewController
         splashViewController.finishAuthorizationWithParamsFromUrl(url)
         
         return true

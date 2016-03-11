@@ -52,7 +52,7 @@ class ProfileViewController: UITableViewController {
             var radius = max(0, min(10, Int(offsetY / 5)))
             backgroundImage.image = blurImageWithGpu(loadedBackgroundImage!, radius: radius)
             
-            println(offsetY)
+            print(offsetY)
         }
     }
 
@@ -71,11 +71,11 @@ class ProfileViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.section == 0) {
-            var cell = tableView.dequeueReusableCellWithIdentifier("ProfileCounterCell") as ProfileCounterTableViewCell
+            var cell = tableView.dequeueReusableCellWithIdentifier("ProfileCounterCell") as! ProfileCounterTableViewCell
             cell.user = user
             return cell
         } else {
-            var cell = tableView.dequeueReusableCellWithIdentifier("TweetTableViewCell") as TweetTableViewCell
+            var cell = tableView.dequeueReusableCellWithIdentifier("TweetTableViewCell") as! TweetTableViewCell
             cell.tweet = user.userTimeline?[indexPath.row]
             return cell
         }
@@ -118,8 +118,8 @@ class ProfileViewController: UITableViewController {
     // MARK: - Segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "ProfileToTweet") {
-            var tweetController = segue.destinationViewController as TweetViewController
-            tweetController.tweet = sender as Tweet
+            var tweetController = segue.destinationViewController as! TweetViewController
+            tweetController.tweet = sender as! Tweet
         }
     }
     

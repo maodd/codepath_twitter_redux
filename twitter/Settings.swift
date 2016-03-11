@@ -24,8 +24,8 @@ class Settings {
         get {
             if let accessTokenValues = defaults.stringArrayForKey("apiAccessToken") {
                 return BDBOAuthToken(
-                    token: accessTokenValues[0] as NSString,
-                    secret: accessTokenValues[1] as NSString,
+                    token: accessTokenValues[0] as NSString as String,
+                    secret: accessTokenValues[1] as NSString as String,
                     expiration: nil)
             } else {
                 return nil

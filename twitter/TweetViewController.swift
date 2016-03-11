@@ -27,7 +27,7 @@ class TweetViewController: UIViewController, ComposeTweetViewControllerDelegate 
     
     var user: User {
         get {
-            var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             return appDelegate.applicationModel.signedInUser!
         }
     }
@@ -70,7 +70,7 @@ class TweetViewController: UIViewController, ComposeTweetViewControllerDelegate 
             if (error == nil) {
                 self.updateControls()
             } else {
-                println("error favoriting tweet")
+                print("error favoriting tweet")
             }
         }
     }
@@ -84,7 +84,7 @@ class TweetViewController: UIViewController, ComposeTweetViewControllerDelegate 
             if (error == nil) {
                 self.updateControls()
             } else {
-                println("error retweeting tweet")
+                print("error retweeting tweet")
             }
         }
     }
@@ -93,7 +93,7 @@ class TweetViewController: UIViewController, ComposeTweetViewControllerDelegate 
     func composeTweetViewControllerDidTweet(message: String, isRetweet: Bool, isReply: Bool) {
         tweet.reply(message, client: twitterClient) { (tweet, error) in
             if (error != nil) {
-                println("error saving reply")
+                print("error saving reply")
             }
         }
     }
@@ -103,8 +103,8 @@ class TweetViewController: UIViewController, ComposeTweetViewControllerDelegate 
         super.prepareForSegue(segue, sender: sender)
         
         if (segue.identifier == "TweetToCompose") {
-            var navigationController = segue.destinationViewController as UINavigationController
-            var composeViewController = navigationController.viewControllers[0] as ComposeTweetViewController
+            var navigationController = segue.destinationViewController as! UINavigationController
+            var composeViewController = navigationController.viewControllers[0] as! ComposeTweetViewController
             composeViewController.isReply = true
             composeViewController.delegate = self
             composeViewController.initialMessage = "@\(tweet.user.screenName) "

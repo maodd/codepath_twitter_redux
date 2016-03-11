@@ -38,21 +38,21 @@ class Tweet: NSObject {
     
     init(values: NSDictionary) {
         // Required fields, for creating a new tweet
-        text = values["text"] as String
-        user = values["user"] is User ? values["user"] as User : User(values: values["user"] as NSDictionary)
+        text = values["text"] as! String
+        user = values["user"] is User ? values["user"] as! User : User(values: values["user"] as! NSDictionary)
         
         if (values["created_at"] != nil) {
             var formatter = NSDateFormatter()
             formatter.dateFormat = "EEE MMM d HH:mm:ss Z y";
-            createdAt = formatter.dateFromString(values["created_at"] as String)!
+            createdAt = formatter.dateFromString(values["created_at"] as! String)!
         } else {
             createdAt = NSDate()
         }
         
-        favorited = values["favorited"] != nil ? values["favorited"] as Bool : false
-        favoriteCount = values["favorite_count"] != nil ? values["favorite_count"] as Int : 0
-        retweeted = values["retweeted"] != nil ? values["retweeted"] as Bool : false
-        retweetCount = values["retweet_count"] != nil ? values["retweet_count"] as Int : 0
+        favorited = values["favorited"] != nil ? values["favorited"] as! Bool : false
+        favoriteCount = values["favorite_count"] != nil ? values["favorite_count"] as! Int : 0
+        retweeted = values["retweeted"] != nil ? values["retweeted"] as! Bool : false
+        retweetCount = values["retweet_count"] != nil ? values["retweet_count"] as! Int : 0
         
         // Optional fields
         id = values["id"] as? Int
@@ -85,7 +85,7 @@ class Tweet: NSObject {
                 handler(error: error)
             }
         } else {
-            println("editing a tweet is unhandled for now")
+            print("editing a tweet is unhandled for now")
         }
     }
     

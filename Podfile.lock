@@ -1,11 +1,11 @@
 PODS:
   - AFNetworking (2.4.1):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-    - AFNetworking/UIKit
+    - AFNetworking/NSURLConnection (= 2.4.1)
+    - AFNetworking/NSURLSession (= 2.4.1)
+    - AFNetworking/Reachability (= 2.4.1)
+    - AFNetworking/Security (= 2.4.1)
+    - AFNetworking/Serialization (= 2.4.1)
+    - AFNetworking/UIKit (= 2.4.1)
   - AFNetworking/NSURLConnection (2.4.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
@@ -37,11 +37,11 @@ DEPENDENCIES:
   - UIImage-Resize
 
 SPEC CHECKSUMS:
-  AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
-  BDBOAuth1Manager: 4f0967110286edd4c7961cf48a4eb242c64137a1
-  GPUImage: cecb0830bb9428f50192042e3c7b53810f51388e
-  MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
-  NSDateMinimalTimeAgo: 11f443d88edcfc2af23309b2641fd063c3d3a125
-  UIImage-Resize: fc57263eed2cd98f74e5ba4848bedae979a0bdf0
+  AFNetworking: 41d45d2c14219af0fa5addf3cfd433a002c13c9f
+  BDBOAuth1Manager: c99ab8d5ff9cf86f5da58b1939adb9642f7272e8
+  GPUImage: 4675ce4a5370ca92fcea8623b2a08b8f0c51b940
+  MBProgressHUD: d8e7ea388dc1549a42e0d219067cf5f2c898fb66
+  NSDateMinimalTimeAgo: 71102cc43bb1aa0b5692c953a1abb8c305691475
+  UIImage-Resize: fa776860f10e6900bbaf53a73e494bdceaaccc77
 
-COCOAPODS: 0.33.1
+COCOAPODS: 0.39.0

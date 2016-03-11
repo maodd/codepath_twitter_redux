@@ -17,12 +17,12 @@ class MainViewController: UIViewController, MenuViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var menuNavigationController = storyboard?.instantiateViewControllerWithIdentifier("MenuNavigationController") as UINavigationController
-        var menuViewController = menuNavigationController.viewControllers[0] as MenuViewController
+        var menuNavigationController = storyboard?.instantiateViewControllerWithIdentifier("MenuNavigationController") as! UINavigationController
+        var menuViewController = menuNavigationController.viewControllers[0] as! MenuViewController
         menuViewController.user = application.signedInUser
         menuViewController.delegate = self
         
-        slideMenuViewController = storyboard?.instantiateViewControllerWithIdentifier("SlideMenuViewController") as SlideMenuViewController
+        slideMenuViewController = storyboard?.instantiateViewControllerWithIdentifier("SlideMenuViewController") as! SlideMenuViewController
         view.addSubview(slideMenuViewController.view)
         addChildViewController(slideMenuViewController)
         
@@ -31,14 +31,14 @@ class MainViewController: UIViewController, MenuViewControllerDelegate {
     }
     
     private func showTimelineView() {
-        var timelineNavigationController = storyboard?.instantiateViewControllerWithIdentifier("HomeTimelineNavigationController") as UINavigationController
-        var timelineViewController = timelineNavigationController.viewControllers[0] as HomeTimelineViewController
+        var timelineNavigationController = storyboard?.instantiateViewControllerWithIdentifier("HomeTimelineNavigationController") as! UINavigationController
+        var timelineViewController = timelineNavigationController.viewControllers[0] as! HomeTimelineViewController
         slideMenuViewController.mainViewController = timelineNavigationController
     }
     
     private func showProfileView() {
-        var profileNavigationController = storyboard?.instantiateViewControllerWithIdentifier("ProfileNavigationController") as UINavigationController
-        var profileViewController = profileNavigationController.viewControllers[0] as ProfileViewController
+        var profileNavigationController = storyboard?.instantiateViewControllerWithIdentifier("ProfileNavigationController") as! UINavigationController
+        var profileViewController = profileNavigationController.viewControllers[0] as! ProfileViewController
         profileViewController.applicationModel = application
         profileViewController.user = application.signedInUser
         slideMenuViewController.mainViewController = profileNavigationController
@@ -46,9 +46,9 @@ class MainViewController: UIViewController, MenuViewControllerDelegate {
     
     // MARK: - Menu View Delegate
     func menuViewControllerDidSelectOption(option: NSDictionary) {
-        if (option["title"] as String == "Timeline") {
+        if (option["title"] as! String == "Timeline") {
             showTimelineView()
-        } else if (option["title"] as String == "Profile") {
+        } else if (option["title"] as! String == "Profile") {
             showProfileView()
         }
         

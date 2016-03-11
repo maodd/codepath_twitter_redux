@@ -52,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2799C287E27CE0C7DBAC5A8A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3718C6D019E271B7001EFAAF /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3718C6D219E28A7C001EFAAF /* ProfileCounterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCounterTableViewCell.swift; sourceTree = "<group>"; };
 		3718C6D419E28E7F001EFAAF /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -89,7 +90,7 @@
 		37CA0D8219D93DB80073EE4D /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		37CA0D8419D95B690073EE4D /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		53ED0C571C9B486CBA0BFB52 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		89712253045549DB807C4173 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		65826388120654557C37F99F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +119,8 @@
 				377EDCE819D410D20024BF07 /* twitter */,
 				377EDCFE19D410D20024BF07 /* twitterTests */,
 				377EDCE719D410D20024BF07 /* Products */,
-				89712253045549DB807C4173 /* Pods.xcconfig */,
 				67E5736AB16B4BEC8F5AF176 /* Frameworks */,
+				51AB5EA327AE05EBC4381D7B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -203,6 +204,15 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		51AB5EA327AE05EBC4381D7B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				65826388120654557C37F99F /* Pods.debug.xcconfig */,
+				2799C287E27CE0C7DBAC5A8A /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		67E5736AB16B4BEC8F5AF176 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +233,7 @@
 				377EDCE319D410D20024BF07 /* Frameworks */,
 				377EDCE419D410D20024BF07 /* Resources */,
 				7EE980AF2E0443CD9E188BAA /* Copy Pods Resources */,
+				84DD96F26E953CE3D9B67C21 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -257,12 +268,12 @@
 		377EDCDE19D410D20024BF07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Dan Schultz";
 				TargetAttributes = {
 					377EDCE519D410D20024BF07 = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = 4RD39L9JLH;
 					};
 					377EDCFA19D410D20024BF07 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -339,7 +350,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84DD96F26E953CE3D9B67C21 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -494,7 +520,7 @@
 		};
 		377EDD0619D410D20024BF07 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89712253045549DB807C4173 /* Pods.xcconfig */;
+			baseConfigurationReference = 65826388120654557C37F99F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -509,10 +535,11 @@
 		};
 		377EDD0719D410D20024BF07 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89712253045549DB807C4173 /* Pods.xcconfig */;
+			baseConfigurationReference = 2799C287E27CE0C7DBAC5A8A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = twitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

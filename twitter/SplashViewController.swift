@@ -10,7 +10,7 @@ import UIKit
 
 class SplashViewController: UIViewController {
     
-    var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+    var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var twitterClient = TwitterClient.sharedInstance
     var settings = Settings.sharedInstance
     
@@ -63,8 +63,8 @@ class SplashViewController: UIViewController {
     }
     
     private func handleAccessTokenFailure(error: NSError!) {
-        println("error getting access token")
-        println("\(error)")
+        print("error getting access token")
+        print("\(error)")
     }
     
     func loadSignedInUser(handler: (User!) -> Void) {
@@ -89,7 +89,7 @@ class SplashViewController: UIViewController {
         
         if (tempSender == self) {
             if (segue.identifier == "SplashToMain") {
-                var mainViewController = segue.destinationViewController as MainViewController
+                var mainViewController = segue.destinationViewController as! MainViewController
                 mainViewController.application = appDelegate.applicationModel
             }
         }

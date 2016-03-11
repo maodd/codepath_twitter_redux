@@ -41,7 +41,7 @@ class TweetTableViewCell: UITableViewCell {
     
     var user: User {
         get {
-            var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             return appDelegate.applicationModel.signedInUser!
         }
     }
@@ -94,7 +94,7 @@ class TweetTableViewCell: UITableViewCell {
             if (error == nil) {
                 self.updateControls()
             } else {
-                println("error favoriting tweet")
+                print("error favoriting tweet")
             }
         }
     }
@@ -104,7 +104,7 @@ class TweetTableViewCell: UITableViewCell {
             if (error == nil) {
                 self.updateControls()
             } else {
-                println("error retweeting tweet")
+                print("error retweeting tweet")
             }
         }
     }

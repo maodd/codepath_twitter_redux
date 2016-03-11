@@ -18,7 +18,7 @@ class HomeTimelineViewController: UITableViewController, ComposeTweetViewControl
     
     var applicationModel: Application {
         get {
-            var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             return appDelegate.applicationModel
         }
     }
@@ -67,7 +67,7 @@ class HomeTimelineViewController: UITableViewController, ComposeTweetViewControl
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("TweetTableViewCell") as TweetTableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("TweetTableViewCell") as! TweetTableViewCell
         cell.delegate = self
         if let loadedTweets = tweets {
             cell.tweet = loadedTweets[indexPath.row]
@@ -96,7 +96,7 @@ class HomeTimelineViewController: UITableViewController, ComposeTweetViewControl
             
             pendingTweet.save(twitterClient) { (error) in
                 if (error != nil) {
-                    println("error saving tweet")
+                    print("error saving tweet")
                 }
             }
         }
@@ -112,14 +112,14 @@ class HomeTimelineViewController: UITableViewController, ComposeTweetViewControl
         super.prepareForSegue(segue, sender: sender)
         
         if (segue.identifier == "HomeTimelineToTweet") {
-            var tweetViewController = segue.destinationViewController as TweetViewController
+            var tweetViewController = segue.destinationViewController as!TweetViewController
             tweetViewController.tweet = selectedTweet
         } else if (segue.identifier == "HomeTimelineToCompose") {
-            var navigationController = segue.destinationViewController as UINavigationController
-            var composeTweetController = navigationController.childViewControllers[0] as ComposeTweetViewController
+            var navigationController = segue.destinationViewController as! UINavigationController
+            var composeTweetController = navigationController.childViewControllers[0] as! ComposeTweetViewController
             composeTweetController.delegate = self
         } else if (segue.identifier == "HomeTimelineToProfile") {
-            var profileController = segue.destinationViewController as ProfileViewController
+            var profileController = segue.destinationViewController as! ProfileViewController
             profileController.applicationModel = applicationModel
             profileController.user = sender as? User
         }

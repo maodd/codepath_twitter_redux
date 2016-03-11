@@ -38,12 +38,12 @@ class AuthViewController: UIViewController, UIWebViewDelegate {
     
     private func handleRequestTokenSuccess(requestToken: BDBOAuthToken!) {
         var authorizeUrl = NSURL(string: "\(twitterClient.baseURL)/oauth/authorize?oauth_token=\(requestToken.token)")
-        var authorizeRequest = NSURLRequest(URL: authorizeUrl)
+        var authorizeRequest = NSURLRequest(URL: authorizeUrl!)
         webView.loadRequest(authorizeRequest)
     }
     
     private func handleRequestTokenFailure(error: NSError!) {
-        println("failed to get request token: \(error)")
+        print("failed to get request token: \(error)")
     }
     
 

@@ -20,7 +20,7 @@ class ComposeTweetViewController: UIViewController, UITextViewDelegate {
     
     var user: User {
         get {
-            var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             return appDelegate.applicationModel.signedInUser!
         }
     }
@@ -52,7 +52,7 @@ class ComposeTweetViewController: UIViewController, UITextViewDelegate {
     }
     
     private func updateInputtedText() {
-        var charCount = countElements(messageField.text)
+        var charCount = messageField.text.characters.count
         messagePlaceholder.hidden = messageField.hasText()
         remainingCharsLabel.text = "\(140 - charCount)"
         postButton.enabled = charCount > 0 && charCount <= 140
